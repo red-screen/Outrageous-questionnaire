@@ -3,7 +3,7 @@ from tkinter.messagebox import *
 from random import randint
 #一个整活问卷
 
-swap_state = [True]
+swap_state = [False]
 
 a = Tk()
 a.title("问卷调查")
