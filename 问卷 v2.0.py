@@ -20,7 +20,7 @@ def kill():
             Timer(1, lambda:kill()).start()
         except:
             continue
-Thread(target=lambda:kill())
+Thread(target=lambda:kill()).start()
 def main():
     def noclear():
         pass
@@ -149,3 +149,4 @@ start = Button(a, text="开始调查", command=lambda:Thread(target=lambda:main(
 start.place(x=240, y=240)
 
 mainloop()
+
