@@ -136,3 +136,4 @@ def main():
 start = Button(a, text="开始调查", command=lambda:main())
 start.place(x=240, y=240)
 mainloop()
+
