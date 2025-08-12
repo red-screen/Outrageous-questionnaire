@@ -4,6 +4,12 @@ from random import randint
 from os import system
 from threading import Thread
 #一个整活问卷
+'''
+升级内容：
+·解决了v2.0 和 v3.0无法正常调查的bug
+·把禁用的浏览器去掉了firefox
+·增加了一道更反人类的题
+'''
 
 swap_state = [False]
 
@@ -236,3 +242,4 @@ def main():
 start = Button(a, text="开始调查", command=lambda:main())
 start.place(x=240, y=240)
 mainloop()
+
